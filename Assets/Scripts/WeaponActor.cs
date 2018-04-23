@@ -22,8 +22,14 @@ public class WeaponActor : MonoBehaviour {
 	private float weaponCoolDownTimer = 0f;
 	private float weaponCoolDownTime = 0.1f;
 
+
+	private bool acquiredRedLaser;
+	private bool acquiredGreenLaser;
+	private bool acquiredBlueLaser;
+
 	// Use this for initialization
 	void Start () {
+		acquiredBlueLaser = true;
 		firemode = FireMode.Blue;
 		laser = gameObject.AddComponent<LineRenderer> ();
 		laser.enabled = false;
@@ -114,14 +120,27 @@ public class WeaponActor : MonoBehaviour {
 	}
 
 	void SwitchFireMode() {
-		if (Input.GetKeyDown (KeyCode.Alpha1)) {
+		if (Input.GetKeyDown (KeyCode.Alpha1) && acquiredBlueLaser == true) {
 			firemode = FireMode.Blue;
 		}
-		if (Input.GetKeyDown (KeyCode.Alpha2)) {
+		if (Input.GetKeyDown (KeyCode.Alpha2) && acquiredGreenLaser == true) {
 			firemode = FireMode.Green;
 		}
-		if (Input.GetKeyDown (KeyCode.Alpha3)) {
+		if (Input.GetKeyDown (KeyCode.Alpha3) && acquiredRedLaser == true) {
 			firemode = FireMode.Red;
 		}
+	}
+
+
+	public void ChangeRedLaserAcquiredState(bool state) {
+		acquiredRedLaser = state;
+	}
+
+	public void ChangeGreenLaserAcquiredState(bool state) {
+		acquiredGreenLaser = state;
+	}
+
+	public void ChangeBlueLaserAcquiredState(bool state) {
+		acquiredBlueLaser = state;
 	}
 }

@@ -7,9 +7,9 @@ TagManager:
   - Blue Enemy
   - Green Enemy
   - Red Enemy
-  - Blue Laser
   - Green Laser
   - Red Laser
+  - Blue Laser
   layers:
   - Default
   - TransparentFX
