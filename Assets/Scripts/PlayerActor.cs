@@ -12,6 +12,7 @@ public class PlayerActor : MonoBehaviour {
 	[SerializeField]private float sprintSpeed;
 	[SerializeField]private float turningSpeed;
 	[SerializeField]private float gravity;
+	[SerializeField]private Camera playerCamera;
 
 	// Use this for initialization
 	void Start () {
@@ -27,6 +28,8 @@ public class PlayerActor : MonoBehaviour {
 		PlayerTurn();
 		PlayerMovement ();
 		PlayerSprint ();
+
+		LookUpAndDown ();
 	}
 
 	void Gravity() {
@@ -50,6 +53,10 @@ public class PlayerActor : MonoBehaviour {
 
 	void PlayerTurn() {
 		transform.Rotate (Vector3.up, turningSpeed * Input.GetAxis("Mouse X"));
+	}
+
+	void LookUpAndDown() {
+		playerCamera.transform.Rotate (Vector3.right, turningSpeed * Input.GetAxis("Mouse Y"));
 	}
 
 	void PlayerSprint() {
