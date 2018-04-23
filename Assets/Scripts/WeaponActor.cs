@@ -44,7 +44,7 @@ public class WeaponActor : MonoBehaviour {
 
 		SetUpLaser ();
 
-		if(Physics.Raycast (rayCastSpawnPoint.transform.position, rayCastSpawnPoint.transform.forward, out hit, range)) {
+		if(Physics.Raycast (laserSpawnPoint.transform.position, rayCastSpawnPoint.transform.forward, out hit, range)) {
 			
 			if (firemode == FireMode.Blue) {
 
