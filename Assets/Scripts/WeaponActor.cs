@@ -18,12 +18,16 @@ public class WeaponActor : MonoBehaviour {
 	private LineRenderer laser;
 	private Color laserColor;
 	private float weaponCoolDown = 1f;
+	private bool weaponFired;
+	private float weaponCoolDownTimer = 0f;
+	private float weaponCoolDownTime = 0.1f;
 
 	// Use this for initialization
 	void Start () {
 		firemode = FireMode.Blue;
 		laser = gameObject.AddComponent<LineRenderer> ();
 		laser.enabled = false;
+		weaponFired = false;
 	}
 	
 	// Update is called once per frame
@@ -33,8 +37,18 @@ public class WeaponActor : MonoBehaviour {
 
 		LaserColor ();
 
-		if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButtonDown (0) && weaponFired == false) {
 			ShootLaser ();
+		}
+
+		if (weaponFired == true) {
+			weaponCoolDownTimer -= Time.deltaTime;
+
+			if (weaponCoolDownTimer <= 0.0f) {
+				laser.enabled = false;
+				weaponFired = false;
+				weaponCoolDownTimer = weaponCoolDownTime; 
+			}
 		}
 	}
 
@@ -78,6 +92,7 @@ public class WeaponActor : MonoBehaviour {
 	}
 
 	void SetUpLaser() {
+		weaponFired = true;
 		laser.enabled = true;
 		laser.material = new Material (Shader.Find("Particles/Additive"));
 		laser.startWidth = 0.3f;
