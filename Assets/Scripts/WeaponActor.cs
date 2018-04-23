@@ -11,6 +11,7 @@ enum FireMode {
 public class WeaponActor : MonoBehaviour {
 
 	[SerializeField]private GameObject laserSpawnPoint;
+	[SerializeField]private GameObject rayCastSpawnPoint; //used for aiming laser
 	[SerializeField]private int range;
 
 	private FireMode firemode;
@@ -43,7 +44,7 @@ public class WeaponActor : MonoBehaviour {
 
 		SetUpLaser ();
 
-		if(Physics.Raycast (laserSpawnPoint.transform.position, laserSpawnPoint.transform.forward, out hit, range)) {
+		if(Physics.Raycast (rayCastSpawnPoint.transform.position, rayCastSpawnPoint.transform.forward, out hit, range)) {
 			
 			if (firemode == FireMode.Blue) {
 
@@ -82,7 +83,7 @@ public class WeaponActor : MonoBehaviour {
 		laser.startWidth = 0.3f;
 		LaserColor ();
 		laser.SetPosition (0, laserSpawnPoint.transform.position);
-		laser.SetPosition (1, laserSpawnPoint.transform.forward * range);
+		laser.SetPosition (1, rayCastSpawnPoint.transform.forward * range);
 	}
 
 	void LaserColor() {
