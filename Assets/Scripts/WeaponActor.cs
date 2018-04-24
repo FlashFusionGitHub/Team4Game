@@ -13,6 +13,7 @@ public class WeaponActor : MonoBehaviour {
 	[SerializeField]private GameObject laserSpawnPoint;
 	[SerializeField]private GameObject rayCastSpawnPoint; //used for aiming laser
 	[SerializeField]private int range;
+	[SerializeField]private Camera camera;
 
 	private FireMode firemode;
 	private LineRenderer laser;
@@ -20,6 +21,7 @@ public class WeaponActor : MonoBehaviour {
 	private bool weaponFired;
 	private float weaponCoolDownTimer = 0f;
 	private float weaponCoolDownTime = 0.1f;
+
 
 
 	private bool acquiredRedLaser;
@@ -103,7 +105,7 @@ public class WeaponActor : MonoBehaviour {
 		laser.startWidth = 0.3f;
 		LaserColor ();
 		laser.SetPosition (0, laserSpawnPoint.transform.position);
-		laser.SetPosition (1, rayCastSpawnPoint.transform.forward * range);
+		laser.SetPosition (1, camera.transform.forward * range);
 	}
 
 	void LaserColor() {
