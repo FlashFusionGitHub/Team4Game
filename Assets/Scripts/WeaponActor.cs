@@ -66,28 +66,31 @@ public class WeaponActor : MonoBehaviour {
 
 		if(Physics.Raycast (laserSpawnPoint.transform.position, rayCastSpawnPoint.transform.forward, out hit, range)) {
 			
-			if (firemode == FireMode.Blue) {
+			if (firemode == FireMode.Blue && acquiredBlueLaser == true) {
 
 				if (hit.collider.tag == "Blue Enemy") {
 					Debug.Log ("Killed Blue Enemy : " + hit.collider);
+					hit.transform.gameObject.GetComponent<EnemyAIActor> ().EnemyTakeDamage (50);
 				} else {
 					Debug.Log ("Blue Laser doesn't effect : " + hit.collider);
 				}
 			}
 			
-			if (firemode == FireMode.Green) {
+			if (firemode == FireMode.Green && acquiredGreenLaser == true) {
 			
 				if (hit.collider.tag == "Green Enemy") {
 					Debug.Log ("Killed Green Enemy : " + hit.collider);
+					hit.transform.gameObject.GetComponent<EnemyAIActor> ().EnemyTakeDamage (50);
 				} else {
 					Debug.Log ("Green Laser doesn't effect : " + hit.collider);
 				}
 			}
 			
-			if (firemode == FireMode.Red) {
+			if (firemode == FireMode.Red && acquiredRedLaser == true) {
 
 				if (hit.collider.tag == "Red Enemy") {
 					Debug.Log ("Killed Red Enemy : " + hit.collider);
+					hit.transform.gameObject.GetComponent<EnemyAIActor> ().EnemyTakeDamage (50);
 				} else {
 					Debug.Log ("Red Laser doesn't effect : " + hit.collider);
 				}

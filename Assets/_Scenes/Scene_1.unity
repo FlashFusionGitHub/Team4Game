@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ab126f65458cc4f9f710764190568a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 1039340284330740, guid: 4533b3e7ad7d70f44a543969a82e5d60, type: 2}
+  laser: {fileID: 1331863145754612, guid: 4533b3e7ad7d70f44a543969a82e5d60, type: 2}
   player: {fileID: 1240058493}
   laserSpawnPoint: {fileID: 1370448630}
   pursueRange: 40
@@ -407,6 +407,7 @@ MonoBehaviour:
   agentSpeed: 10
   AttackTime: 2
   laserSpeed: 5
+  enemyHealth: 100
 --- !u!195 &178888262
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -428,6 +429,18 @@ NavMeshAgent:
   m_BaseOffset: 100
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &178888265
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 178888259}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 714.63495, y: 909.1356, z: 663.0847}
+  m_Center: {x: -9.473754, y: 377.2083, z: 67.547905}
 --- !u!224 &195105634 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224810875810969530, guid: 0ac0581a65079cd4d8e20bfd795a7182,
@@ -509,6 +522,10 @@ Prefab:
     - target: {fileID: 400002, guid: b63b99ecc382e9740a12a606044042f6, type: 3}
       propertyPath: m_LocalPosition.z
       value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b63b99ecc382e9740a12a606044042f6, type: 3}
+      propertyPath: m_TagString
+      value: Red Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b63b99ecc382e9740a12a606044042f6, type: 3}
@@ -1192,6 +1209,10 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b63b99ecc382e9740a12a606044042f6, type: 3}
+      propertyPath: m_TagString
+      value: Green Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b63b99ecc382e9740a12a606044042f6, type: 3}
   m_IsPrefabParent: 0
@@ -1326,7 +1347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ab126f65458cc4f9f710764190568a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 1372791428938384, guid: a646b28cb1fea1f40b6eeb336208eb76, type: 2}
+  laser: {fileID: 1460108406125630, guid: a646b28cb1fea1f40b6eeb336208eb76, type: 2}
   player: {fileID: 1240058493}
   laserSpawnPoint: {fileID: 958829947}
   pursueRange: 40
@@ -1334,6 +1355,7 @@ MonoBehaviour:
   agentSpeed: 10
   AttackTime: 2
   laserSpeed: 5
+  enemyHealth: 100
 --- !u!195 &1063403069
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1355,6 +1377,18 @@ NavMeshAgent:
   m_BaseOffset: 100
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &1063403072
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1063403066}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 714.63495, y: 909.1356, z: 663.0847}
+  m_Center: {x: -9.473754, y: 377.2083, z: 67.547905}
 --- !u!1 &1090130802 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: b63b99ecc382e9740a12a606044042f6, type: 3}
@@ -1374,7 +1408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ab126f65458cc4f9f710764190568a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laser: {fileID: 1567593208717246, guid: e477261b8f405f54cbb9d78194319745, type: 2}
+  laser: {fileID: 1730435173851390, guid: e477261b8f405f54cbb9d78194319745, type: 2}
   player: {fileID: 1240058493}
   laserSpawnPoint: {fileID: 695188648}
   pursueRange: 40
@@ -1382,6 +1416,7 @@ MonoBehaviour:
   agentSpeed: 10
   AttackTime: 2
   laserSpeed: 5
+  enemyHealth: 100
 --- !u!195 &1090130805
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1403,6 +1438,18 @@ NavMeshAgent:
   m_BaseOffset: 100
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &1090130808
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1090130802}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 714.63495, y: 909.1356, z: 663.0847}
+  m_Center: {x: -9.473723, y: 377.2083, z: 67.547905}
 --- !u!1 &1195998339
 GameObject:
   m_ObjectHideFlags: 0
@@ -1964,6 +2011,10 @@ Prefab:
     - target: {fileID: 400000, guid: b63b99ecc382e9740a12a606044042f6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 183.43199
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: b63b99ecc382e9740a12a606044042f6, type: 3}
+      propertyPath: m_TagString
+      value: Blue Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b63b99ecc382e9740a12a606044042f6, type: 3}
