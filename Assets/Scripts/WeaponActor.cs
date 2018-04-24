@@ -10,10 +10,11 @@ enum FireMode {
 
 public class WeaponActor : MonoBehaviour {
 
+	public Camera camera;
+
 	[SerializeField]private GameObject laserSpawnPoint;
 	[SerializeField]private GameObject rayCastSpawnPoint; //used for aiming laser
 	[SerializeField]private int range;
-	[SerializeField]private Camera camera;
 
 	private FireMode firemode;
 	private LineRenderer laser;
@@ -21,8 +22,6 @@ public class WeaponActor : MonoBehaviour {
 	private bool weaponFired;
 	private float weaponCoolDownTimer = 0f;
 	private float weaponCoolDownTime = 0.1f;
-
-
 
 	private bool acquiredRedLaser;
 	private bool acquiredGreenLaser;
@@ -38,7 +37,7 @@ public class WeaponActor : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		SwitchFireMode ();
 
@@ -100,12 +99,13 @@ public class WeaponActor : MonoBehaviour {
 
 	void SetUpLaser() {
 		weaponFired = true;
+		laser.positionCount = 2;
 		laser.enabled = true;
 		laser.material = new Material (Shader.Find("Particles/Additive"));
 		laser.startWidth = 0.3f;
 		LaserColor ();
 		laser.SetPosition (0, laserSpawnPoint.transform.position);
-		laser.SetPosition (1, camera.transform.forward * range);
+		laser.SetPosition (1, camera.transform.forward * range + camera.transform.position);
 	}
 
 	void LaserColor() {
