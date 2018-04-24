@@ -19,12 +19,28 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4091882903306772}
-  - component: {fileID: 33751736490117026}
-  - component: {fileID: 23673036598668008}
-  - component: {fileID: 64744741754933818}
   m_Layer: 0
   m_Name: EnemyBlue
   m_TagString: Blue Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1546683480254232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4954909230739494}
+  - component: {fileID: 33842761050578162}
+  - component: {fileID: 23492854273946650}
+  - component: {fileID: 114334744491213274}
+  - component: {fileID: 195287126571146838}
+  m_Layer: 0
+  m_Name: enemy_model:pCube10
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,19 +51,33 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1246092191848796}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0.7466413, y: 3.14, z: 5.1}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
-  m_Children: []
+  m_LocalRotation: {x: -0, y: 0.99955165, z: -0, w: -0.029941443}
+  m_LocalPosition: {x: 10.59, y: 0.95000005, z: 5.28}
+  m_LocalScale: {x: 0.004, y: 0.004, z: 0.004}
+  m_Children:
+  - {fileID: 4954909230739494}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 183.43199, z: 0}
+--- !u!4 &4954909230739494
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546683480254232}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4091882903306772}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23673036598668008
+--- !u!23 &23492854273946650
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1246092191848796}
+  m_GameObject: {fileID: 1546683480254232}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -76,24 +106,47 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33751736490117026
+--- !u!33 &33842761050578162
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1246092191848796}
-  m_Mesh: {fileID: 4300000, guid: 1530c72b2a02bb3428c2126e4dc7b675, type: 3}
---- !u!64 &64744741754933818
-MeshCollider:
+  m_GameObject: {fileID: 1546683480254232}
+  m_Mesh: {fileID: 4300000, guid: b63b99ecc382e9740a12a606044042f6, type: 3}
+--- !u!114 &114334744491213274
+MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1246092191848796}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_GameObject: {fileID: 1546683480254232}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 1530c72b2a02bb3428c2126e4dc7b675, type: 3}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ab126f65458cc4f9f710764190568a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1308833874881706, guid: 5249d414b52582f40a78a7d0f0b2a20a, type: 2}
+  pursueRange: 40
+  attackRange: 20
+  agentSpeed: 10
+  AttackTime: 2
+--- !u!195 &195287126571146838
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1546683480254232}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 399.09027
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1000
+  m_BaseOffset: 100
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
