@@ -98,7 +98,7 @@ public class PlayerActor : MonoBehaviour {
 
 		if (health <= 0) {
 			//Load Death scene
-			health = 0.0f;
+			health = max_health;
 		}
 
 		UpdateHealthBar ();
@@ -112,5 +112,19 @@ public class PlayerActor : MonoBehaviour {
 		}
 
 		UpdateHealthBar ();
+	}
+
+	void OnTriggerEnter(Collider hit) {
+		if (hit.tag == "Blue Laser") {
+			TakeDamage (5);
+		}
+
+		if (hit.tag == "Green Laser") {
+			TakeDamage (5);
+		}
+
+		if (hit.tag == "Red Laser") {
+			TakeDamage (5);
+		}
 	}
 }
