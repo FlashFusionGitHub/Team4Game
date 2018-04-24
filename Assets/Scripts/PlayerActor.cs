@@ -8,7 +8,6 @@ public class PlayerActor : MonoBehaviour {
 	private CharacterController player;
 	private float playerSpeed;
 
-
 	[SerializeField]private float walkSpeed;
 	[SerializeField]private float sprintSpeed;
 	[SerializeField]private float turningSpeed;

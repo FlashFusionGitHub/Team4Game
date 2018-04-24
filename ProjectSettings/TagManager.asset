@@ -10,6 +10,9 @@ TagManager:
   - Green Laser
   - Red Laser
   - Blue Laser
+  - Red Laser PickUp
+  - Blue Laser PickUp
+  - Green Laser PickUp
   layers:
   - Default
   - TransparentFX
