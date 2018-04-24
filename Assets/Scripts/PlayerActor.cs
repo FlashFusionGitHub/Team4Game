@@ -57,11 +57,14 @@ public class PlayerActor : MonoBehaviour {
 
 	void LookUpAndDown() {
 
-		float angle = turningSpeed * Input.GetAxis ("Mouse Y");
+		Vector3 angles = playerCamera.transform.eulerAngles + (Vector3.right * Input.GetAxis ("Mouse Y")) * turningSpeed;
 
-		angle = Mathf.Clamp (angle , -0.5f, 0.5f);
+		if (angles.x > 180)
+			angles.x -= 360;
 
-		playerCamera.transform.Rotate (Vector3.right, angle);
+		angles.x = Mathf.Clamp (angles.x, -10, 30);
+
+		playerCamera.transform.eulerAngles = angles;
 	}
 
 	void PlayerSprint() {

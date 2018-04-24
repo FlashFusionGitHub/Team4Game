@@ -17,7 +17,6 @@ public class WeaponActor : MonoBehaviour {
 	private FireMode firemode;
 	private LineRenderer laser;
 	private Color laserColor;
-	private float weaponCoolDown = 1f;
 	private bool weaponFired;
 	private float weaponCoolDownTimer = 0f;
 	private float weaponCoolDownTime = 0.1f;
