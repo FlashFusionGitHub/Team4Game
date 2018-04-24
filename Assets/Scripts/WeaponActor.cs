@@ -29,7 +29,6 @@ public class WeaponActor : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
 		acquiredBlueLaser = true;
 		firemode = FireMode.Blue;
 		laser = gameObject.AddComponent<LineRenderer> ();
@@ -39,10 +38,6 @@ public class WeaponActor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
-
-		Cursor.lockState = CursorLockMode.Locked;
-		Cursor.visible = false;
 
 		SwitchFireMode ();
 
