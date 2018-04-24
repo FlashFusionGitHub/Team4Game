@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerActor : MonoBehaviour {
 
@@ -13,6 +14,13 @@ public class PlayerActor : MonoBehaviour {
 	[SerializeField]private float turningSpeed;
 	[SerializeField]private float gravity;
 	[SerializeField]private Camera playerCamera;
+
+	public float health = 100;
+	public Image currentHealth;
+	public Text healthPercentage;
+
+	private float max_health = 100;
+
 
 	// Use this for initialization
 	void Start () {
@@ -77,5 +85,32 @@ public class PlayerActor : MonoBehaviour {
 		} else {
 			playerSpeed = walkSpeed;
 		}
+	}
+
+	void UpdateHealthBar() {
+		float ratio = health / max_health;
+		currentHealth.rectTransform.localScale = new Vector3 (ratio, 1, 1);
+		healthPercentage.text = (ratio * 100).ToString() + '%';
+	}
+
+	public void TakeDamage(float damage) {
+		health -= damage;
+
+		if (health <= 0) {
+			//Load Death scene
+			health = 0.0f;
+		}
+
+		UpdateHealthBar ();
+	}
+
+	private void HealPlayer(float healAmount) {
+		health += healAmount;
+
+		if (health > max_health) {
+			health = max_health;
+		}
+
+		UpdateHealthBar ();
 	}
 }
