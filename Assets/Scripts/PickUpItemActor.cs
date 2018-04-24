@@ -20,17 +20,17 @@ public class PickUpItemActor : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 
-		if (other.gameObject.tag == "Blue Laser") {
+		if (other.gameObject.tag == "Blue Laser PickUp") {
 			Destroy (other.gameObject);
 			weaponActor.ChangeRedLaserAcquiredState (true);
 		}
 
-		if (other.gameObject.tag == "Red Laser") {
+		if (other.gameObject.tag == "Red Laser PickUp") {
 			Destroy (other.gameObject);
 			weaponActor.ChangeRedLaserAcquiredState (true);
 		}
 
-		if (other.gameObject.tag == "Green Laser") {
+		if (other.gameObject.tag == "Green Laser PickUp") {
 			Destroy (other.gameObject);
 			weaponActor.ChangeGreenLaserAcquiredState (true);
 		}

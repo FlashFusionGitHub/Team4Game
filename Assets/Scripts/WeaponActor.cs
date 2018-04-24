@@ -37,11 +37,9 @@ public class WeaponActor : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
 
 		SwitchFireMode ();
-
-		LaserColor ();
 
 		if (Input.GetMouseButtonDown (0) && weaponFired == false) {
 			ShootLaser ();
@@ -56,6 +54,8 @@ public class WeaponActor : MonoBehaviour {
 				weaponCoolDownTimer = weaponCoolDownTime; 
 			}
 		}
+
+		Debug.Log (acquiredRedLaser);
 	}
 
 	void ShootLaser() {
@@ -66,7 +66,7 @@ public class WeaponActor : MonoBehaviour {
 
 		if(Physics.Raycast (laserSpawnPoint.transform.position, rayCastSpawnPoint.transform.forward, out hit, range)) {
 			
-			if (firemode == FireMode.Blue && acquiredBlueLaser == true) {
+			if (firemode == FireMode.Blue) {
 
 				if (hit.collider.tag == "Blue Enemy") {
 					Debug.Log ("Killed Blue Enemy : " + hit.collider);
@@ -76,7 +76,7 @@ public class WeaponActor : MonoBehaviour {
 				}
 			}
 			
-			if (firemode == FireMode.Green && acquiredGreenLaser == true) {
+			if (firemode == FireMode.Green) {
 			
 				if (hit.collider.tag == "Green Enemy") {
 					Debug.Log ("Killed Green Enemy : " + hit.collider);
@@ -86,7 +86,7 @@ public class WeaponActor : MonoBehaviour {
 				}
 			}
 			
-			if (firemode == FireMode.Red && acquiredRedLaser == true) {
+			if (firemode == FireMode.Red) {
 
 				if (hit.collider.tag == "Red Enemy") {
 					Debug.Log ("Killed Red Enemy : " + hit.collider);
@@ -133,6 +133,8 @@ public class WeaponActor : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Alpha3) && acquiredRedLaser == true) {
 			firemode = FireMode.Red;
 		}
+
+		LaserColor ();
 	}
 
 
