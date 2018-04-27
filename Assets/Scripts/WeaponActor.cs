@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 enum FireMode {
 	Blue = 0,
@@ -15,13 +16,19 @@ public class WeaponActor : MonoBehaviour {
 	[SerializeField]private GameObject laserSpawnPoint;
 	[SerializeField]private GameObject rayCastSpawnPoint; //used for aiming laser
 	[SerializeField]private int range;
+	[SerializeField]private Image greenGunImage;
+	[SerializeField]private Image redGunImage;
+	[SerializeField]private Image blueGunImage;
+	[SerializeField]private Text killCountText;
 
 	private FireMode firemode;
 	private LineRenderer laser;
 	private Color laserColor;
+	private EnemyAIActor enemyAIActor;
 	private bool weaponFired;
 	private float weaponCoolDownTimer = 0f;
 	private float weaponCoolDownTime = 0.1f;
+	private int killCount;
 
 	private bool acquiredRedLaser;
 	private bool acquiredGreenLaser;
@@ -32,8 +39,15 @@ public class WeaponActor : MonoBehaviour {
 		acquiredBlueLaser = true;
 		firemode = FireMode.Blue;
 		laser = gameObject.AddComponent<LineRenderer> ();
+		enemyAIActor = GameObject.FindObjectOfType<EnemyAIActor> ();
 		laser.enabled = false;
 		weaponFired = false;
+		killCount = 0;
+		killCountText.text = "Kills : 0";
+
+		blueGunImage.enabled = true;
+		greenGunImage.enabled = false;
+		redGunImage.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -55,7 +69,7 @@ public class WeaponActor : MonoBehaviour {
 			}
 		}
 
-		Debug.Log (acquiredRedLaser);
+		killCountText.text = "Kills : " + killCount;
 	}
 
 	void ShootLaser() {
@@ -69,35 +83,24 @@ public class WeaponActor : MonoBehaviour {
 			if (firemode == FireMode.Blue) {
 
 				if (hit.collider.tag == "Blue Enemy") {
-					Debug.Log ("Killed Blue Enemy : " + hit.collider);
 					hit.transform.gameObject.GetComponent<EnemyAIActor> ().EnemyTakeDamage (50);
-				} else {
-					Debug.Log ("Blue Laser doesn't effect : " + hit.collider);
 				}
 			}
 			
 			if (firemode == FireMode.Green) {
 			
 				if (hit.collider.tag == "Green Enemy") {
-					Debug.Log ("Killed Green Enemy : " + hit.collider);
 					hit.transform.gameObject.GetComponent<EnemyAIActor> ().EnemyTakeDamage (50);
-				} else {
-					Debug.Log ("Green Laser doesn't effect : " + hit.collider);
 				}
 			}
 			
 			if (firemode == FireMode.Red) {
 
 				if (hit.collider.tag == "Red Enemy") {
-					Debug.Log ("Killed Red Enemy : " + hit.collider);
 					hit.transform.gameObject.GetComponent<EnemyAIActor> ().EnemyTakeDamage (50);
-				} else {
-					Debug.Log ("Red Laser doesn't effect : " + hit.collider);
 				}
 			}
 		}
-
-
 	}
 
 	void SetUpLaser() {
@@ -126,12 +129,21 @@ public class WeaponActor : MonoBehaviour {
 	void SwitchFireMode() {
 		if (Input.GetKeyDown (KeyCode.Alpha1) && acquiredBlueLaser == true) {
 			firemode = FireMode.Blue;
+			blueGunImage.enabled = true;
+			greenGunImage.enabled = false;
+			redGunImage.enabled = false;
 		}
 		if (Input.GetKeyDown (KeyCode.Alpha2) && acquiredGreenLaser == true) {
 			firemode = FireMode.Green;
+			blueGunImage.enabled = false;
+			greenGunImage.enabled = true;
+			redGunImage.enabled = false;
 		}
 		if (Input.GetKeyDown (KeyCode.Alpha3) && acquiredRedLaser == true) {
 			firemode = FireMode.Red;
+			blueGunImage.enabled = false;
+			greenGunImage.enabled = false;
+			redGunImage.enabled = true;
 		}
 
 		LaserColor ();
@@ -148,5 +160,9 @@ public class WeaponActor : MonoBehaviour {
 
 	public void ChangeBlueLaserAcquiredState(bool state) {
 		acquiredBlueLaser = state;
+	}
+
+	public void KillCountAddOne() {
+		killCount++;
 	}
 }

@@ -68,7 +68,7 @@ public class PlayerActor : MonoBehaviour {
 
 	void LookUpAndDown() {
 
-		Vector3 angles = playerCamera.transform.eulerAngles + (Vector3.right * Input.GetAxis ("Mouse Y")) * turningSpeed;
+		Vector3 angles = playerCamera.transform.eulerAngles + (Vector3.right * -Input.GetAxis ("Mouse Y")) * turningSpeed;
 
 		if (angles.x > 180)
 			angles.x -= 360;
