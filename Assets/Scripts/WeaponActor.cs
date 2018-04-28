@@ -85,6 +85,10 @@ public class WeaponActor : MonoBehaviour {
 				if (hit.collider.tag == "Blue Enemy") {
 					hit.transform.gameObject.GetComponent<EnemyAIActor> ().EnemyTakeDamage (50);
 				}
+
+				if (hit.collider.tag == "Blue Door") {
+					hit.transform.gameObject.GetComponent<DoorActor> ().SetDoorState (true);	
+				}
 			}
 			
 			if (firemode == FireMode.Green) {
@@ -92,12 +96,20 @@ public class WeaponActor : MonoBehaviour {
 				if (hit.collider.tag == "Green Enemy") {
 					hit.transform.gameObject.GetComponent<EnemyAIActor> ().EnemyTakeDamage (50);
 				}
+
+				if (hit.collider.tag == "Green Door") {
+					hit.transform.gameObject.GetComponent<DoorActor> ().SetDoorState (true);	
+				}
 			}
 			
 			if (firemode == FireMode.Red) {
 
 				if (hit.collider.tag == "Red Enemy") {
 					hit.transform.gameObject.GetComponent<EnemyAIActor> ().EnemyTakeDamage (50);
+				}
+
+				if (hit.collider.tag == "Red Door") {
+					hit.transform.gameObject.GetComponent<DoorActor> ().SetDoorState (true);	
 				}
 			}
 		}

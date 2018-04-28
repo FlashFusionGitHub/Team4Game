@@ -13,6 +13,9 @@ TagManager:
   - Red Laser PickUp
   - Blue Laser PickUp
   - Green Laser PickUp
+  - Blue Door
+  - Red Door
+  - Green Door
   layers:
   - Default
   - TransparentFX
