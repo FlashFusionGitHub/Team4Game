@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerActor : MonoBehaviour {
 
@@ -97,7 +98,7 @@ public class PlayerActor : MonoBehaviour {
 
 		if (health <= 0) {
 			//Load Death scene
-			health = max_health;
+			SceneManager.LoadScene(1);
 		}
 
 		UpdateHealthBar ();
