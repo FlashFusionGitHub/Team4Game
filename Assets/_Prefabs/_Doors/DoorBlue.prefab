@@ -21,9 +21,11 @@ GameObject:
   - component: {fileID: 4650748971418934}
   - component: {fileID: 33518821944520266}
   - component: {fileID: 23372224630679854}
+  - component: {fileID: 64289158251966840}
+  - component: {fileID: 114837454983745490}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Blue Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,6 +40,7 @@ GameObject:
   - component: {fileID: 4248251190257440}
   - component: {fileID: 33202559478019478}
   - component: {fileID: 23075279317344858}
+  - component: {fileID: 64787171987988918}
   m_Layer: 0
   m_Name: DoorBlue
   m_TagString: Untagged
@@ -52,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1523317658155072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.68, y: 0.27523, z: 62.986}
+  m_LocalPosition: {x: -25.49, y: 0.46354082, z: 35.21}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children:
   - {fileID: 4650748971418934}
@@ -154,3 +157,43 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1478860804847738}
   m_Mesh: {fileID: 4300000, guid: ab9c3117aef0948419c5c88ddbd61520, type: 3}
+--- !u!64 &64289158251966840
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478860804847738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: ab9c3117aef0948419c5c88ddbd61520, type: 3}
+--- !u!64 &64787171987988918
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1523317658155072}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: b408cc1896a9bb84cad68355fcfd3e5f, type: 3}
+--- !u!114 &114837454983745490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478860804847738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025417923ea079b4bb0d62a40ad60dae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopPosition: 10
