@@ -21,16 +21,18 @@ public class PlayerActor : MonoBehaviour {
 
 	private float max_health = 100;
 
+    float healthTimer = 0.0f;
+    float healthRegenTime = 3.0f;
 
 	// Use this for initialization
 	void Start () {
 		player = GetComponent<CharacterController> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-		Cursor.lockState = CursorLockMode.Locked;
+    // Update is called once per frame
+    void Update () {
+
+        Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
 
 		//Apply gravity
@@ -42,7 +44,17 @@ public class PlayerActor : MonoBehaviour {
 		PlayerSprint ();
 
 		LookUpAndDown ();
-	}
+
+        healthTimer -= Time.deltaTime;
+
+        //health regen
+        if (healthTimer <= 0.0f && health != max_health)
+        {
+            health += 10;
+            healthTimer = healthRegenTime;
+            UpdateHealthBar();
+        }
+    }
 
 	void Gravity() {
 		player.Move (new Vector3(0, -(gravity * Time.deltaTime), 0));
