@@ -48,7 +48,7 @@ public class PlayerActor : MonoBehaviour {
         healthTimer -= Time.deltaTime;
 
         //health regen
-        if (healthTimer <= 0.0f && health != max_health)
+        if (healthTimer <= 0.0f && health < max_health)
         {
             health += 10;
             healthTimer = healthRegenTime;
@@ -103,6 +103,9 @@ public class PlayerActor : MonoBehaviour {
 		float ratio = health / max_health;
 		currentHealth.rectTransform.localScale = new Vector3 (ratio, 1, 1);
 		healthPercentage.text = (ratio * 100).ToString() + '%';
+
+        if (health >= max_health)
+            health = max_health;
 	}
 
 	public void TakeDamage(float damage) {
