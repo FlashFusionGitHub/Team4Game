@@ -52,6 +52,10 @@ public class PlayerActor : MonoBehaviour {
         {
             health += 10;
             healthTimer = healthRegenTime;
+
+            if (health >= max_health)
+                health = max_health;
+
             UpdateHealthBar();
         }
     }
