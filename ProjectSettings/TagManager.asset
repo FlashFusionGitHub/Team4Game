@@ -16,6 +16,7 @@ TagManager:
   - Blue Door
   - Red Door
   - Green Door
+  - Monitor
   layers:
   - Default
   - TransparentFX

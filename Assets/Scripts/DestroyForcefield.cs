@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class DestroyForcefield : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public GameObject forcefield;
+
+
+    public void Deactivate()
+    {
+        Destroy(forcefield);
+        Destroy(gameObject);
+    }
+
 }

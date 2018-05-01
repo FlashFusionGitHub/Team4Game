@@ -80,6 +80,12 @@ public class WeaponActor : MonoBehaviour {
 
 		if(Physics.Raycast (laserSpawnPoint.transform.position, rayCastSpawnPoint.transform.forward, out hit, range)) {
 			
+            if (hit.collider.tag == "Monitor")
+            {
+                hit.transform.gameObject.GetComponent<DestroyForcefield>().Deactivate();
+            }
+
+
 			if (firemode == FireMode.Blue) {
 
 				if (hit.collider.tag == "Blue Enemy") {
