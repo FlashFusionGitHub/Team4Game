@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1451062092037696}
   m_IsPrefabParent: 1
+--- !u!1 &1276148826650434
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4505669904691740}
+  m_Layer: 0
+  m_Name: LaserSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1451062092037696
 GameObject:
   m_ObjectHideFlags: 0
@@ -21,7 +36,7 @@ GameObject:
   - component: {fileID: 4156392415113726}
   m_Layer: 0
   m_Name: EnemyGreen
-  m_TagString: Green Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,11 +51,12 @@ GameObject:
   - component: {fileID: 4639973877336670}
   - component: {fileID: 33072891190560014}
   - component: {fileID: 23427744959043908}
+  - component: {fileID: 65972494272687110}
   - component: {fileID: 114874922664557786}
   - component: {fileID: 195474568297376232}
   m_Layer: 0
   m_Name: enemy_model:pCube10
-  m_TagString: Untagged
+  m_TagString: Green Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,6 +75,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 183.43199, z: 0}
+--- !u!4 &4505669904691740
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1276148826650434}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 257, y: 421.99997, z: 382}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4639973877336670}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4639973877336670
 Transform:
   m_ObjectHideFlags: 1
@@ -68,7 +97,8 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 119, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4505669904691740}
   m_Father: {fileID: 4156392415113726}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -113,6 +143,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1596050798795328}
   m_Mesh: {fileID: 4300000, guid: b63b99ecc382e9740a12a606044042f6, type: 3}
+--- !u!65 &65972494272687110
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1596050798795328}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 714.63495, y: 909.1356, z: 663.0847}
+  m_Center: {x: -9.473723, y: 377.2083, z: 67.547905}
 --- !u!114 &114874922664557786
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,11 +166,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ab126f65458cc4f9f710764190568a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1308833874881706, guid: 5249d414b52582f40a78a7d0f0b2a20a, type: 2}
+  laser: {fileID: 1730435173851390, guid: e477261b8f405f54cbb9d78194319745, type: 2}
+  player: {fileID: 0}
+  laserSpawnPoint: {fileID: 1276148826650434}
   pursueRange: 40
   attackRange: 20
   agentSpeed: 10
   AttackTime: 2
+  laserSpeed: 5
+  enemyHealth: 100
 --- !u!195 &195474568297376232
 NavMeshAgent:
   m_ObjectHideFlags: 1
