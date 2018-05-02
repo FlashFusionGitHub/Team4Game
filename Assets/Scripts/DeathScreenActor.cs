@@ -11,16 +11,16 @@ public class DeathScreenActor : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-		Cursor.lockState = CursorLockMode.None;
+        restartButton.onClick.AddListener(Restart);
+        exitButton.onClick.AddListener(Exit);
+        Cursor.lockState = CursorLockMode.None;
 		Cursor.visible = true;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		restartButton.onClick.AddListener(Restart);
-		exitButton.onClick.AddListener (Exit);
+
 
 	}
 

@@ -117,7 +117,7 @@ public class PlayerActor : MonoBehaviour {
 
 		if (health <= 0) {
 			//Load Death scene
-			SceneManager.LoadScene(1);
+			SceneManager.LoadScene(2);
 		}
 
 		UpdateHealthBar ();
