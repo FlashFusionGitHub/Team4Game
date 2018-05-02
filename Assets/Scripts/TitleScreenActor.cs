@@ -7,9 +7,12 @@ using UnityEngine.SceneManagement;
 public class TitleScreenActor : MonoBehaviour {
 
     public Button startbutton;
+    public Button exitButton;
 
-	// Use this for initialization
-	void Start () {
+
+    // Use this for initialization
+    void Start () {
+        exitButton.onClick.AddListener(Exit);
         startbutton.onClick.AddListener(StartGame);
 
     }
@@ -17,10 +20,15 @@ public class TitleScreenActor : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-	}
+    }
 
     void StartGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    void Exit()
+    {
+        Application.Quit();
     }
 }

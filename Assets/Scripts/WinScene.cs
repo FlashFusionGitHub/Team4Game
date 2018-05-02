@@ -13,12 +13,13 @@ public class WinScene : MonoBehaviour {
     void Start () {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        restartButton.onClick.AddListener(Restart);
+        exitButton.onClick.AddListener(Exit);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        restartButton.onClick.AddListener(Restart);
-        exitButton.onClick.AddListener(Exit);
+
     }
 
     void Exit()
